@@ -2,7 +2,7 @@ import express from "express";
 import cors from "cors";
 import bodyParser from "body-parser";
 import dotenv from "dotenv";
-
+import membersController from "./controllers/membersController.js"
 
 
 /* Accessing .env content */
@@ -15,5 +15,8 @@ app.use(cors({ origin: "*" }));
 
 app.use(bodyParser.json());
 
+
+// Define registration route
+app.post('/register', membersController.registerUser);
 
 export default app;
