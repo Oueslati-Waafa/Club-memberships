@@ -1,17 +1,17 @@
-// controllers/authController.js
+
 import User from "../models/members.js";
 
 async function registerUser(req, res) {
-  const { firstname, lastname, username, email, region } = req.body;
+  const { firstname, lastname, username, email, telephone, region } = req.body;
 
   try {
-    // Check if username or email already exists
-    const existingUser = await User.findOne({ $or: [{ username }, { email }] });
+    // Check if username, email, or telephone already exists
+    const existingUser = await User.findOne({
+      $or: [{ username }, { email }, { telephone }],
+    });
 
     if (existingUser) {
-      return res
-        .status(400)
-        .json({ message: "Username or email already exists" });
+      return res.status(400).json({ message: "Username, email, or telephone already exists" });
     }
 
     // Create a new user document
@@ -20,6 +20,7 @@ async function registerUser(req, res) {
       lastname,
       username,
       email,
+      telephone,
       region,
     });
 

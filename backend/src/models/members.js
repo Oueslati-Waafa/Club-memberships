@@ -17,9 +17,20 @@ const userSchema = new mongoose.Schema({
       message: (props) => `${props.value} is not a valid email address!`,
     },
   },
+  telephone: {
+    type: String,
+    validate: {
+      validator: function (phone) {
+        // Regular expression to validate German phone number format
+        return /^(\+49|0)[0-9]{10,11}$/.test(phone);
+      },
+      message: (props) => `${props.value} is not a valid German phone number!`,
+    },
+  },
   region: String,
 });
 
 const User = mongoose.model("User", userSchema);
 
 export default User;
+
