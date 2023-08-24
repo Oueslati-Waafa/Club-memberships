@@ -1,4 +1,3 @@
-
 import User from "../models/members.js";
 
 async function registerUser(req, res) {
@@ -11,7 +10,9 @@ async function registerUser(req, res) {
     });
 
     if (existingUser) {
-      return res.status(400).json({ message: "Username, email, or telephone already exists" });
+      return res
+        .status(400)
+        .json({ message: "Username, email, or telephone already exists" });
     }
 
     // Create a new user document
@@ -29,7 +30,17 @@ async function registerUser(req, res) {
 
     res.status(201).json({ message: "User registered successfully" });
   } catch (error) {
-    res.status(500).json({ message: "An error occurred" });
+    if (error.name === "ValidationError") {
+      // Construct an array of error messages from the validation errors
+      const validationErrors = Object.values(error.errors).map(
+        (err) => err.message
+      );
+      return res
+        .status(400)
+        .json({ message: "Validation errors", errors: validationErrors });
+    } else {
+      return res.status(500).json({ message: "An error occurred" });
+    }
   }
 }
 

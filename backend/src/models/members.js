@@ -1,5 +1,12 @@
-// models/user.js
 import mongoose from "mongoose";
+
+const validRegions = [
+  "Aachen",
+  "Düsseldorf",
+  "Köln",
+  "Mönchengladbach",
+  "Erkelenz",
+];
 
 const userSchema = new mongoose.Schema({
   firstname: String,
@@ -17,6 +24,13 @@ const userSchema = new mongoose.Schema({
       message: (props) => `${props.value} is not a valid email address!`,
     },
   },
+  region: {
+    type: String,
+    enum: validRegions,
+    required: true,
+    message:
+      "Region must be one of: Aachen, Düsseldorf, Köln, Mönchengladbach, Erkelenz",
+  },
   telephone: {
     type: String,
     validate: {
@@ -27,10 +41,8 @@ const userSchema = new mongoose.Schema({
       message: (props) => `${props.value} is not a valid German phone number!`,
     },
   },
-  region: String,
 });
 
 const User = mongoose.model("User", userSchema);
 
 export default User;
-
