@@ -1,0 +1,40 @@
+.footer_container {
+  background: #127910;
+}
+
+.footer_links {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  width: fit-content;
+  margin: 0 auto;
+  font-size: 0.8rem;
+}
+
+@media (min-width: 1024px) {
+  .footer_logo {
+    width: 25%;
+    margin: 0 auto;
+  }
+}
+
+@media (min-width: 568px) and (max-width: 1024px) {
+  .footer_logo {
+    width: 35%;
+    margin: 0 auto;
+  }
+}
+
+@media (min-width: 425px) and (max-width: 568px) {
+  .footer_logo {
+    width: 55%;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 425px) {
+  .footer_logo {
+    width: 65%;
+    margin: 0 auto;
+  }
+}
