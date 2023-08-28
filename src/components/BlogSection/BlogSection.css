@@ -19,6 +19,24 @@
   padding: 0;
 }
 
+@media (min-width: 1024px) {
+  .blog_card {
+    width: 23%;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .blog_card {
+    width: 32%;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 768px) {
+  .blog_card {
+    width: 47%;
+  }
+}
+
 .blog_card_categ {
   font-size: 0.6rem;
   background-color: lightgray;

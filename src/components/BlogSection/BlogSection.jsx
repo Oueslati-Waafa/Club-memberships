@@ -67,9 +67,9 @@ export default function BlogSection() {
   return (
     <main className="blog_container container">
       <h1 className="fw-bold">Aktuelle Beiträge</h1>
-      <div className="blog_cards row row-cols-lg-4 row-cols-md-3 row-cols-sm-2 row-cols-1 g-5">
+      <div className="blog_cards d-flex flex-wrap">
         {blogs.map((blg, index) => (
-          <div className="blog_card" key={index}>
+          <div className="blog_card mb-5 mx-auto" key={index}>
             <div className="blog_card_img border rounded-5 mb-3">
               <p className="blog_card_date p-1 text-light m-0">
                 <span className="fw-semibold lh-1 blog_card_date_day">15</span>
