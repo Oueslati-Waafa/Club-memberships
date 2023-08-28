@@ -23,8 +23,10 @@ export default function RegisterForm() {
   const [isValidUname, setIsValidUname] = useState(false);
   const [email, setEmail] = useState("");
   const [isValidEmail, setIsValidEmail] = useState(false);
-  const [telephone, setTelephone] = useState("");
+  const [telephone, setTelephone] = useState("+49");
   const [isValidTelephone, setIsValidTelephone] = useState(false);
+
+  const [btnLock, setBtnLock] = useState(false);
 
   /* input change handling */
 
@@ -60,12 +62,13 @@ export default function RegisterForm() {
   };
 
   const onTelephoneChange = (e) => {
-    const ttelephone = e.target.value;
-    setTelephone(ttelephone);
+    const inputTelephone = e.target.value;
+    const cleanedTelephone = inputTelephone.replace(/[^0-9+]/g, ""); // Remove non-digit characters except "+"
+    setTelephone(cleanedTelephone);
 
-    // German phone number validation: +49 followed by 10 digits
-    const telephonePattern = /^\+49\d{10}$/;
-    setIsValidTelephone(telephonePattern.test(ttelephone));
+    // German phone number validation: +49 followed by 11 digits
+    const telephonePattern = /^\+49\d{11}$/;
+    setIsValidTelephone(telephonePattern.test(cleanedTelephone));
   };
 
   /* form submit handler*/
@@ -174,8 +177,7 @@ export default function RegisterForm() {
       isValidTelephone &&
       selectedRegion !== ""
     ) {
-      console.log(isValidTelephone);
-      console.log(telephone);
+      setBtnLock(true);
       try {
         const response = await fetch(
           "https://clubregistration.onrender.com/register",
@@ -188,7 +190,8 @@ export default function RegisterForm() {
           }
         );
 
-        // const responseData = await response.json();
+        const responseData = await response.json();
+        console.log(responseData);
 
         if (response.ok) {
           toast.success("Registration successful", {
@@ -201,8 +204,15 @@ export default function RegisterForm() {
             progress: undefined,
             theme: "light",
           });
+          setFname("");
+          setLname("");
+          setUname("");
+          setEmail("");
+          setTelephone("+49");
+          setSelectedRegion("");
+          setBtnLock(false);
         } else {
-          toast.error("Registration failed. Please try again.", {
+          toast.error(responseData.message, {
             position: "top-right",
             autoClose: 2000,
             hideProgressBar: false,
@@ -212,6 +222,7 @@ export default function RegisterForm() {
             progress: undefined,
             theme: "light",
           });
+          setBtnLock(false);
         }
       } catch (error) {
         console.error("An error occurred:", error);
@@ -225,6 +236,7 @@ export default function RegisterForm() {
           progress: undefined,
           theme: "light",
         });
+        setBtnLock(false);
       }
     }
   };
@@ -268,6 +280,7 @@ export default function RegisterForm() {
                 onChange={(e) => {
                   onFnameChange(e);
                 }}
+                value={fname}
               />
             </InputGroup>
           </Form.Group>
@@ -283,6 +296,7 @@ export default function RegisterForm() {
                 onChange={(e) => {
                   onLnameChange(e);
                 }}
+                value={lname}
               />
             </InputGroup>
           </Form.Group>
@@ -298,6 +312,7 @@ export default function RegisterForm() {
                 onChange={(e) => {
                   onUnameChange(e);
                 }}
+                value={uname}
               />
             </InputGroup>
           </Form.Group>
@@ -420,6 +435,7 @@ export default function RegisterForm() {
                 onChange={(e) => {
                   onEmailChange(e);
                 }}
+                value={email}
               />
             </InputGroup>
           </Form.Group>
@@ -444,10 +460,12 @@ export default function RegisterForm() {
               <Form.Control
                 type="tel"
                 placeholder="Telefonnummer"
-                defaultValue={"+49"}
+                value={telephone}
                 onChange={(e) => {
                   onTelephoneChange(e);
                 }}
+                minLength={14}
+                maxLength={14}
               />
             </InputGroup>
           </Form.Group>
@@ -470,16 +488,17 @@ export default function RegisterForm() {
             type="submit"
             disabled={
               fname === "" ||
-              lname === " " ||
+              lname === "" ||
               uname === "" ||
               email === "" ||
               telephone === "" ||
-              selectedRegion === ""
+              selectedRegion === "" ||
+              btnLock
                 ? true
                 : false
             }
           >
-            Registrieren
+            {btnLock ? "..." : "Registrieren"}
           </button>
         </Form>
       </div>
