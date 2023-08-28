@@ -418,7 +418,7 @@ export default function RegisterForm() {
                     toggleSelect();
                   }}
                 >
-                  And Erkelenz
+                  Erkelenz
                 </p>
               </div>
             </div>
