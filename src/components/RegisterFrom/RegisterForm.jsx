@@ -33,14 +33,14 @@ export default function RegisterForm() {
   const onFnameChange = (e) => {
     const tfname = e.target.value;
     setFname(tfname);
-    setIsValidFname(tfname.length >= 5);
+    setIsValidFname(tfname.length >= 3);
     // console.log(fname);
   };
 
   const onLnameChange = (e) => {
     const tlname = e.target.value;
     setLname(tlname);
-    setIsValidLname(tlname.length >= 5);
+    setIsValidLname(tlname.length >= 3);
     // console.log(lname);
   };
 
