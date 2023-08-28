@@ -177,13 +177,16 @@ export default function RegisterForm() {
       console.log(isValidTelephone);
       console.log(telephone);
       try {
-        const response = await fetch("http://127.0.0.1:9090/register", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(requestData),
-        });
+        const response = await fetch(
+          "https://clubregistration.onrender.com/register",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(requestData),
+          }
+        );
 
         const responseData = await response.json();
 
