@@ -103,6 +103,7 @@ export default function FaqPage() {
                     className="text-dark"
                     href="https://csc-maps.de/community/"
                     target={"_blank"}
+                    rel="noreferrer"
                   >
                     Unser CSC-Forum
                   </a>{" "}

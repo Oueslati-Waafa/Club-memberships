@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "./RegisterForm.css";
 import Form from "react-bootstrap/Form";
 import personIcon from "../../assets/icons/person.png";
@@ -172,7 +172,7 @@ export default function RegisterForm() {
       isValidUname &&
       isValidEmail &&
       isValidTelephone &&
-      selectedRegion != ""
+      selectedRegion !== ""
     ) {
       console.log(isValidTelephone);
       console.log(telephone);
@@ -188,7 +188,7 @@ export default function RegisterForm() {
           }
         );
 
-        const responseData = await response.json();
+        // const responseData = await response.json();
 
         if (response.ok) {
           toast.success("Registration successful", {
@@ -458,6 +458,7 @@ export default function RegisterForm() {
             <a
               href="https://csc-maps.de/datenschutz/"
               target={"_blank"}
+              rel="noreferrer"
               className="text-dark fw-bold"
             >
               Datenschutzerklärung
