@@ -394,7 +394,7 @@ export default function RegisterForm() {
               <div className="region_select_option">
                 <p
                   onClick={() => {
-                    setSelectedRegion("And Erkelenz");
+                    setSelectedRegion("Erkelenz");
                     toggleSelect();
                   }}
                 >
