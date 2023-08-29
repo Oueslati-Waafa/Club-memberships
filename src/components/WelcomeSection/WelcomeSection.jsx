@@ -12,7 +12,7 @@ export default function WelcomeSection() {
       <div className="welcome_content">
         <h2 className="fw-semibold my-5">
           Willkommen bei den{" "}
-          <span className="text-darkgreen">Hanfpionieren</span> ,
+          <span className="text-darkgreen">Hanfpionieren</span>
         </h2>
         <div className="welcome_content_text">
           <p>

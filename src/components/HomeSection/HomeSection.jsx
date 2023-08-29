@@ -20,7 +20,7 @@ export default function HomeSection() {
             Werde Mitglied bei den{" "}
             <span className="text-green">Hanfpionieren</span> !
           </h1>
-          <p className="mt-5">
+          <p className="mt-5 fw-semibold">
             Registrieren Sie sich jetzt für unseren bevorstehenden
             Cannabis-Verein und entdecken Sie die Welt des Hanfanbaus
             und der Forschung

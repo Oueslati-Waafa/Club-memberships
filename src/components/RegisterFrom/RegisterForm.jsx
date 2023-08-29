@@ -394,6 +394,16 @@ export default function RegisterForm() {
               <div className="region_select_option">
                 <p
                   onClick={() => {
+                    setSelectedRegion("And Erkelenz");
+                    toggleSelect();
+                  }}
+                >
+                  Erkelenz
+                </p>
+              </div>
+              <div className="region_select_option">
+                <p
+                  onClick={() => {
                     setSelectedRegion("Köln");
                     toggleSelect();
                   }}
@@ -409,16 +419,6 @@ export default function RegisterForm() {
                   }}
                 >
                   Mönchengladbach
-                </p>
-              </div>
-              <div className="region_select_option">
-                <p
-                  onClick={() => {
-                    setSelectedRegion("And Erkelenz");
-                    toggleSelect();
-                  }}
-                >
-                  Erkelenz
                 </p>
               </div>
             </div>
