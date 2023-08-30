@@ -6,6 +6,7 @@ import homeLeft from "../../assets/homeLeft.png";
 import homeRight from "../../assets/homeRight.png";
 import homeBottmRight from "../../assets/section_bottom_right.png";
 import homeBottmLeft from "../../assets/section_bottom_left.png";
+import homeBottm2 from "../../assets/home_bottom2.png";
 
 export default function HomeSection() {
   return (
@@ -27,7 +28,7 @@ export default function HomeSection() {
           </p>
         </div>
       </section>
-      <section className="home_images d-flex align-items-end">
+      <section className="home_images d-none d-sm-flex align-items-end">
         <div className="home_images_container">
           <div className="home_image_side">
             <img src={homeLeft} className="img-fluid" alt="home img" />
@@ -44,6 +45,9 @@ export default function HomeSection() {
           <img src={homeBottmRight} className="img-fluid w-50" alt="home img" />
         </div>
       </section>
+      <div className="home_bottom2 d-md-none d-block">
+        <img src={homeBottm2} className="img-fluid w-100" alt="home img" />
+      </div>
     </main>
   );
 }
