@@ -2,7 +2,7 @@
 import bcrypt from "bcrypt";
 import Admin from "../models/admin.js";
 
-export const initializeAdmin = async (username, password) => {
+export const initializeAdmin = async (username, password,email) => {
   try {
     const existingAdmin = await Admin.findOne({ username });
     if (existingAdmin) {
@@ -18,6 +18,7 @@ export const initializeAdmin = async (username, password) => {
     const newAdmin = new Admin({
       username,
       password: hashedPassword,
+      email
     });
 
     await newAdmin.save();
