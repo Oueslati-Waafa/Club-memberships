@@ -1,6 +1,19 @@
+// membersController.js
 import User from "../models/members.js";
 
-async function registerUser(req, res) {
+export const listMembers = async (req, res) => {
+  try {
+    // Fetch the list of registered members from the database
+    const members = await User.find();
+
+    // Send the list of members as a response
+    res.json({ members });
+  } catch (error) {
+    res.status(500).json({ error: "Failed to fetch members" });
+  }
+};
+
+export const registerUser = async (req, res) => {
   const { firstname, lastname, username, email, telephone, region } = req.body;
 
   try {
@@ -42,8 +55,9 @@ async function registerUser(req, res) {
       return res.status(500).json({ message: "An error occurred" });
     }
   }
-}
+};
 
 export default {
+  listMembers,
   registerUser,
 };

@@ -17,7 +17,7 @@ dotenv.config();
 const app = express();
 app.use(express.json());
 app.use(cors({ origin: "*" }));
-initializeAdmin("admin", "09y&7Qw7#0t1.");
+//initializeAdmin("admin", "09y&7Qw7#0t1.");
 app.use(bodyParser.json());
 
 

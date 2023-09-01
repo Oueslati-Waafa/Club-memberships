@@ -29,11 +29,9 @@ export const adminLogin = async (req, res) => {
         .json({ error: "Authentication failed: Admin not found." });
     }
 
-    console.log("Input Password:", password);
-    console.log("Hashed Password from DB:", admin.password);
+
 
     const passwordMatch = await bcrypt.compare(password, admin.password);
-    console.log("Password Match Result:", passwordMatch);
 
     if (!passwordMatch) {
       return res

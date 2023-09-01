@@ -10,10 +10,10 @@ export const initializeAdmin = async (username, password) => {
       return;
     }
 
-    console.log("Password before hashing:", password);
+    
 
     const hashedPassword = await bcrypt.hash(password, 10);
-    console.log("Hashed Password:", hashedPassword);
+  
 
     const newAdmin = new Admin({
       username,
