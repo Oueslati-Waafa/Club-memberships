@@ -6,10 +6,12 @@ import membersController from "../controllers/membersController.js";
 
 const adminRoutes = express.Router();
 
-// Use your adminLogin function for login
+// Login Route
 adminRoutes.post("/login", adminLogin);
 
-// Use verifyToken middleware and listMembers function for the dashboard
-adminRoutes.get("/dashboard", verifyToken, membersController.listMembers);
+// members list route
+adminRoutes.get("/dashboard/members-list", verifyToken, membersController.listMembers);
+// one member details route
+adminRoutes.get("/dashboard/members-list/:id", verifyToken, membersController.getMemberById);
 
 export default adminRoutes;

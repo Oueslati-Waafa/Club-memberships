@@ -13,6 +13,24 @@ export const listMembers = async (req, res) => {
   }
 };
 
+export const getMemberById = async (req, res) => {
+  try {
+    const memberId = req.params.id; // Get the member ID from the request parameters
+
+    // Fetch the member from the database using the provided ID
+    const member = await User.findById(memberId);
+
+    if (!member) {
+      return res.status(404).json({ error: "Member not found" });
+    }
+
+    // Send the member data as a response
+    res.json({ member });
+  } catch (error) {
+    res.status(500).json({ error: "Failed to fetch member" });
+  }
+};
+
 export const registerUser = async (req, res) => {
   const { firstname, lastname, username, email, telephone, region } = req.body;
 
@@ -60,4 +78,5 @@ export const registerUser = async (req, res) => {
 export default {
   listMembers,
   registerUser,
+  getMemberById,
 };
