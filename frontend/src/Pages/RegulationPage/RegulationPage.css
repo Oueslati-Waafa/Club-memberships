@@ -1,0 +1,89 @@
+.background {
+  background-image: url("../../assets/background.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 400px;
+  overflow-y: hidden;
+  position: relative;
+}
+
+@media (min-width: 1024px) {
+  .regulation_logo {
+    width: 25%;
+    margin: 0 auto;
+  }
+}
+
+@media (min-width: 568px) and (max-width: 1024px) {
+  .regulation_logo {
+    width: 60%;
+    margin: 0 auto;
+  }
+}
+
+.background_bottom {
+  position: absolute;
+  bottom: -5%;
+  width: 100%;
+}
+
+.regulation_box {
+  border-radius: 52px;
+  border: 1px solid rgba(18, 121, 16, 0.53);
+  background: #fff;
+  box-shadow: -1px 29px 42px 10px rgba(18, 121, 16, 0.11);
+  margin: 230px auto 0;
+}
+
+@media (min-width: 1440px) {
+  .regulation_box {
+    width: 40%;
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1440px) {
+  .regulation_box {
+    width: 50%;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .regulation_box {
+    width: 60%;
+  }
+}
+
+@media (min-width: 568px) and (max-width: 768px) {
+  .regulation_box {
+    width: 70%;
+  }
+}
+
+@media (max-width: 568px) {
+  .regulation_box {
+    width: 95%;
+  }
+}
+
+.regulation_box p {
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
+.background_box {
+  position: absolute;
+  width: 100%;
+  top: 0;
+}
+
+.regulation_content {
+  z-index: 100;
+  position: relative;
+  font-family: "Roboto", sans-serif;
+}
+
+.extra_bold {
+  font-size: 0.75rem !important;
+  font-weight: 900 !important;
+}

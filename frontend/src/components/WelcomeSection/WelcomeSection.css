@@ -1,0 +1,34 @@
+.welcome_container {
+  background: #f6f6f6;
+}
+
+.text-darkgreen {
+  color: #127910;
+}
+
+@media (min-width: 768px) {
+  .welcome_content_text {
+    width: 50%;
+    margin: 0 auto;
+    font-size: 0.8rem;
+    font-weight: 700;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 768px) {
+  .welcome_content_text {
+    width: 75%;
+    margin: 0 auto;
+    font-size: 0.8rem;
+    font-weight: 700;
+  }
+}
+
+@media (max-width: 576px) {
+  .welcome_content_text {
+    width: 90%;
+    margin: 0 auto;
+    font-size: 0.7rem;
+    font-weight: 700;
+  }
+}
