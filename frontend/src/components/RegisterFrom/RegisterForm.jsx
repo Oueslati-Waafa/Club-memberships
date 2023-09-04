@@ -180,7 +180,7 @@ export default function RegisterForm() {
       setBtnLock(true);
       try {
         const response = await fetch(
-          "https://clubregistration.onrender.com/register",
+          "https://hanfpioniere.onrender.com/register",
           {
             method: "POST",
             headers: {
