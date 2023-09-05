@@ -13,5 +13,7 @@ adminRoutes.post("/login", adminLogin);
 adminRoutes.get("/dashboard/members-list", verifyToken, membersController.listMembers);
 // one member details route
 adminRoutes.get("/dashboard/members-list/:id", verifyToken, membersController.getMemberById);
+// delete one member
+adminRoutes.delete("/dashboard/members/delete/:id", verifyToken, membersController.deleteMember);
 
 export default adminRoutes;

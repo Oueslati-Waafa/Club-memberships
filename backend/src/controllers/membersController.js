@@ -31,6 +31,30 @@ export const getMemberById = async (req, res) => {
   }
 };
 
+//Delete member function
+export const deleteMember = async (req, res) => {
+  try {
+    const memberId = req.params.id; //receive memberId as a parameter
+
+    // Find the member by their ID in the database
+    const member = await User.findById(memberId);
+
+    if (!member) {
+      // If the member is not found, return a 404 error
+      return res.status(404).json({ error: "Member not found" });
+    }
+
+    // If the member is found, then delete them from the database
+    await User.findByIdAndRemove(memberId);
+
+    // Return a success message
+    return res.status(200).json({ message: "Member deleted successfully" });
+  } catch (error) {
+    // If any error occurs during the process, return a 500 error
+    res.status(500).json({ error: "Failed to delete member" });
+  }
+};
+
 export const registerUser = async (req, res) => {
   const { firstname, lastname, username, email, telephone, region } = req.body;
 
@@ -79,4 +103,5 @@ export default {
   listMembers,
   registerUser,
   getMemberById,
+  deleteMember,
 };
