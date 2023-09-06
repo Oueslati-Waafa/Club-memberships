@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import logo from "../../assets/logo.png";
 import "./FooterSection.css";
 
@@ -7,6 +7,14 @@ export default function FooterSection() {
   const scrollToTop = () => {
     window.scrollTo(0, 0);
   };
+
+  const location = useLocation();
+  const hideFooter =
+    location.pathname === "/dashboard" || location.pathname === "/login";
+
+  if (hideFooter) {
+    return null;
+  }
 
   return (
     <footer className="footer_container mt-5 py-5">

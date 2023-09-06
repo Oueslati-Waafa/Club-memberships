@@ -1,0 +1,176 @@
+.dashboard_container {
+  max-width: 100vw;
+}
+
+/* password field */
+
+.password_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.password_field .form-control {
+  border-left: 1px solid;
+  border-color: #dee2e6;
+}
+
+.password_field {
+  border-radius: 52px;
+  border: 1px solid rgba(18, 121, 16, 0.53);
+  background: #fff;
+  box-shadow: -1px 29px 42px 10px rgba(18, 121, 16, 0.11);
+  padding: 2rem;
+  width: 50%;
+  min-height: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* users dash */
+
+.users_dash {
+  min-height: 100vh;
+  max-width: 100%;
+  background: linear-gradient(to bottom, #000, #161d16);
+}
+
+/* side bar */
+
+/* @media (min-width: 1024px) {
+  .sidebar {
+    width: 15%;
+    height: 100vh;
+  }
+}
+
+@media (max-width: 1024px) {
+  .sidebar {
+    width: 20%;
+    height: 100vh;
+  }
+} */
+
+.sidebar_logo {
+  background: #000;
+  height: 10%;
+}
+
+.sidebar_links {
+  background: #161d16;
+  height: 90%;
+}
+
+.sidebar_links ul {
+  list-style: none;
+  padding-top: 2rem;
+}
+
+.sidebar_links ul li {
+  display: flex;
+  align-items: center;
+  background: #393f39;
+  color: #fff;
+  border-top-left-radius: 7px;
+  border-bottom-left-radius: 7px;
+}
+
+.sidebar_links ul li:hover,
+.sidebar_links ul li:focus {
+  opacity: 0.9;
+  cursor: pointer;
+}
+
+.sidebar_logo:hover,
+.sidebar_logo:focus {
+  opacity: 0.9;
+  cursor: pointer;
+}
+
+.sidebar_link_icon {
+  background: #575c57;
+  padding: 5px 10px;
+  border-radius: 7px;
+}
+
+/* users list */
+
+.users_list_container {
+  border-top-left-radius: 2rem;
+  border-bottom-left-radius: 2rem;
+  min-height: 100vh;
+  background: #fff;
+}
+
+.users_list_filters_button {
+  width: 15%;
+}
+
+.users_list_filter {
+  border-left: 1px solid;
+  border-color: #dee2e6;
+  width: 15%;
+}
+
+/* Style the select element */
+.users_list_filter {
+  /* Set the background color for the select */
+  background-color: transparent;
+  /* Remove the default arrow */
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  /* Define a custom arrow using the inline SVG as a data URL */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'%3E%3Crect x='0.5' y='0.5' width='23' height='23' rx='12' fill='green'/%3E%3Cpath d='M7.29289 9.29289C7.68342 8.90237 8.31658 8.90237 8.70711 9.29289L12 12.5858L15.2929 9.29289C15.6834 8.90237 16.3166 8.90237 16.7071 9.29289C17.0976 9.68342 17.0976 10.3166 16.7071 10.7071L12.7071 14.7071C12.3166 15.0976 11.6834 15.0976 11.2929 14.7071L7.29289 10.7071C6.90237 10.3166 6.90237 9.68342 7.29289 9.29289Z' fill='%23FEFFFE'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 50% 10px; /* Center the arrow vertically */
+  background-size: 24px 24px; /* Adjust the size here */
+  /* Add padding to create space for the arrow image */
+  padding-right: 30px; /* Adjust as needed */
+  /* Other styles for border, rounded corners, etc. */
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  /* Set the text color to black */
+  color: black;
+  /* Set the cursor to pointer to indicate interactivity */
+  cursor: pointer;
+}
+
+/* Style for select when open (optional) */
+.users_list_filter:focus {
+  /* Add styles for when the select is focused (e.g., outline, box-shadow) */
+  outline: none;
+  box-shadow: 0 0 10px rgba(25, 135, 84, 0.5);
+  /* Customize the appearance when open (e.g., remove borders or change colors) */
+  border: 1px solid #198754; /* Customize as needed */
+  background-color: white; /* Customize as needed */
+}
+
+.users_list_filter_option:hover,
+.users_list_filter_option:hover {
+  background-color: #198754 !important;
+}
+
+.user_box {
+  border-radius: 15px;
+  background: #fefffe;
+  box-shadow: 0.94024px 6.58165px 62.99579px 0px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1rem;
+}
+
+.user_info {
+    margin-bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+.user_icon {
+    width: fit-content;
+    border-radius: 50%;
+    background-color: #198754;
+    padding: .5rem .7rem;
+}

@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import "./FaqPage.css";
 import SectionBottom from "../../assets/section_bottom3.png";
 import logo from "../../assets/logo.png";
-import faqImg from "../../assets/faq.png";
 import { Link } from "react-router-dom";
+import faqImg from "../../assets/faq.png";
 
 export default function FaqPage() {
   const [menuOpen, setMenuOpen] = useState(false);

@@ -1,0 +1,64 @@
+.background {
+  background-image: url("../../assets/background.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 300px;
+  overflow-y: hidden;
+  position: relative;
+}
+
+.login_logo {
+  width: 25%;
+  height: auto;
+}
+
+.background_bottom {
+  position: absolute;
+  bottom: -5%;
+  width: 100%;
+}
+
+@media (min-width: 1440px) {
+  .login_form_container {
+    width: 35%;
+  }
+}
+@media (min-width: 1024px) and (max-width: 1440px) {
+  .login_form_container {
+    width: 60%;
+  }
+}
+
+.login_form_container {
+  border-radius: 52px;
+  border: 1px solid rgba(18, 121, 16, 0.53);
+  background: #fff;
+  box-shadow: -1px 29px 42px 10px rgba(18, 121, 16, 0.11);
+  margin: 6rem auto;
+}
+
+.login_container {
+  min-height: 100vh;
+}
+
+.login_form {
+  width: 75%;
+  margin: 0 auto;
+}
+
+.login_form_button {
+  border-radius: 100px;
+  background: #127910;
+  box-shadow: 0px 13px 10px 0px rgba(18, 121, 16, 0.14);
+  width: 75%;
+  margin: 0 auto;
+  color: #fff;
+  font-weight: 700;
+  padding: 0.7em 0;
+  text-transform: uppercase;
+}
+
+.login_form_text {
+  font-size: 0.7rem;
+}
