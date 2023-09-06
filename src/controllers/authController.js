@@ -29,8 +29,6 @@ export const adminLogin = async (req, res) => {
         .json({ error: "Authentication failed: Admin not found." });
     }
 
-
-
     const passwordMatch = await bcrypt.compare(password, admin.password);
 
     if (!passwordMatch) {
@@ -46,8 +44,35 @@ export const adminLogin = async (req, res) => {
         expiresIn: "1h",
       }
     );
-    res.json({ token: newToken });
+
+    // Send admin data along with the token (excluding sensitive information like password)
+    res.json({
+      admin: {
+        token: newToken,
+        username: admin.username,
+        email: admin.email,
+        id: admin._id,
+      },
+    });
   } catch (error) {
     res.status(500).json({ error: "Login failed" });
+  }
+};
+
+export const getAdminDataByUsername = async (req, res) => {
+  try {
+    const username = req.params.username;
+
+    // Find the admin by username in the database
+    const admin = await Admin.findOne({ username });
+
+    if (!admin) {
+      return res.status(404).json({ error: "Admin not found." });
+    }
+
+    // Send the admin data as a response (you can customize this as needed)
+    res.status(200).json({ admin });
+  } catch (error) {
+    res.status(500).json({ error: "Error fetching admin data." });
   }
 };
