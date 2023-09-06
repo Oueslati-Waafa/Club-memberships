@@ -72,3 +72,13 @@
   width: 80%;
   margin: 0 auto;
 }
+
+.users_list_container {
+  position: relative;
+}
+
+.details_page_toggler {
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+}

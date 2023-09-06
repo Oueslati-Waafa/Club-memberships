@@ -39,20 +39,6 @@
 
 /* side bar */
 
-/* @media (min-width: 1024px) {
-  .sidebar {
-    width: 15%;
-    height: 100vh;
-  }
-}
-
-@media (max-width: 1024px) {
-  .sidebar {
-    width: 20%;
-    height: 100vh;
-  }
-} */
-
 .sidebar_logo {
   background: #000;
   height: 10%;
@@ -93,6 +79,33 @@
   background: #575c57;
   padding: 5px 10px;
   border-radius: 7px;
+}
+
+.sidebar_toggler,
+.sidebar_toggler:hover,
+.sidebar_toggler:focus {
+  border: none;
+  outline: none;
+}
+
+@media (max-width: 1200px) {
+  .sidebar {
+    display: none;
+    transition: all 0.5s ease-in-out;
+  }
+
+  .sidebar_open {
+    display: block !important;
+    position: fixed;
+    max-width: 250px;
+    height: 100vh;
+  }
+
+  /* Add margin to users_list when sidebar is open */
+  .sidebar_open + .users_list_container {
+    margin-left: 250px; /* Adjust the margin width as needed */
+    transition: margin-left 0.5s ease-in-out;
+  }
 }
 
 /* users list */
@@ -197,6 +210,7 @@
   border-radius: 50%;
   background-color: #198754;
   padding: 0.5rem 0.7rem;
+  margin-right: 1rem;
 }
 
 .admin_icon {
@@ -260,4 +274,30 @@
 
 .logout_link:hover {
   cursor: pointer;
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .user_box {
+    font-size: 0.9rem;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 768px) {
+  .user_box {
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .user_box {
+    font-size: 0.8rem;
+  }
+
+  .person_icon {
+    display: none;
+  }
+
+  .user_info_btn {
+    margin-left: 1rem;
+  }
 }

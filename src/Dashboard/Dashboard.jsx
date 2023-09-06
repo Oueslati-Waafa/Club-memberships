@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import "./Dashboard.css";
 
 import { IoIosArrowDroprightCircle } from "react-icons/io";
+import { GiHamburgerMenu } from "react-icons/gi";
+import { AiOutlineClose } from "react-icons/ai";
 import { AiFillCrown } from "react-icons/ai";
 import { Form } from "react-bootstrap";
 
@@ -41,41 +43,6 @@ export default function Dashboard() {
       </svg>
     );
   }
-
-  const users = [
-    {
-      uname: "Unknown",
-      fname: "Unknown",
-      lname: "Unknown",
-      region: "Aachen",
-      email: "unknown@gmail.com",
-      telephone: "+4917683174731",
-    },
-    {
-      uname: "Unknown",
-      fname: "Unknown",
-      lname: "Unknown",
-      region: "Aachen",
-      email: "unknown@gmail.com",
-      telephone: "+4917683174731",
-    },
-    {
-      uname: "Unknown",
-      fname: "Unknown",
-      lname: "Unknown",
-      region: "Aachen",
-      email: "unknown@gmail.com",
-      telephone: "+4917683174731",
-    },
-    {
-      uname: "Unknown",
-      fname: "Unknown",
-      lname: "Unknown",
-      region: "Aachen",
-      email: "unknown@gmail.com",
-      telephone: "+4917683174731",
-    },
-  ];
 
   const [showmenu, setShowMenu] = useState(false);
 
@@ -131,6 +98,12 @@ export default function Dashboard() {
     }
   };
 
+  const [showSidebar, setShowSidebar] = useState(false);
+
+  const toggleSidebar = () => {
+    setShowSidebar(!showSidebar);
+  };
+
   // const [showPassword, setShowPassword] = useState(false);
 
   // const togglePasswordVisibility = () => {
@@ -175,7 +148,9 @@ export default function Dashboard() {
   return (
     <main className="dashboard_container">
       <section className="users_dash row">
-        <div className="sidebar p-0 col-2">
+        <div
+          className={`p-0 col-xl-2 ${showSidebar ? "sidebar_open" : "sidebar"}`}
+        >
           <div className="sidebar_logo d-flex align-items-center">
             <Link to={"/"}>
               <img src={logoSmall} alt="logo" className="img-fluid" />
@@ -205,9 +180,27 @@ export default function Dashboard() {
             </ul>
           </div>
         </div>
-        <div className="users_list_container col-10 px-5 pt-5">
+        <div
+          className={`users_list_container col-xl-10 px-5 pt-5 ${
+            showSidebar ? "" : "col-12"
+          }`}
+        >
           <div className="d-flex align-items-center justify-content-between mb-5">
-            <h2 className="users_list_header text-start fw-bold">NUTZER</h2>
+            <div className="d-flex align-items-center">
+              <button
+                className="sidebar_toggler btn p-0 d-block d-xl-none"
+                onClick={toggleSidebar}
+              >
+                {showSidebar ? (
+                  <AiOutlineClose color="#198754" size={30} />
+                ) : (
+                  <GiHamburgerMenu color="#198754" size={30} />
+                )}
+              </button>
+              <h2 className="users_list_header text-start fw-bold mb-0 ms-xl-0 ms-3">
+                NUTZER
+              </h2>
+            </div>
             <div className="admin_icon d-flex align-items-center justify-content-between">
               <button className="btn admin_icon_button" onClick={toggleMenu}>
                 <AiFillCrown color="gold" size={30} />
@@ -263,7 +256,7 @@ export default function Dashboard() {
           <div className="users_list mt-5">
             {filtredMembers.map((usr, index) => (
               <div className="user_box row p-3" key={index}>
-                <p className="user_info col-1 border-end">
+                <p className="user_info person_icon col-1 border-end">
                   <div className="user_icon">
                     <PersonIcon />
                   </div>

@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import "./UserDetails.css";
 
 import { BsFillTrashFill } from "react-icons/bs";
+import { GiHamburgerMenu } from "react-icons/gi";
+import { AiOutlineClose } from "react-icons/ai";
 
 import logoSmall from "../../assets/logo-small.png";
 import axios from "axios";
@@ -85,6 +87,12 @@ export default function UserDetails() {
     }
   };
 
+  const [showSidebar, setShowSidebar] = useState(false);
+
+  const toggleSidebar = () => {
+    setShowSidebar(!showSidebar);
+  };
+
   return (
     <main className="dashboard_container">
       <ToastContainer
@@ -100,7 +108,9 @@ export default function UserDetails() {
         theme="light"
       />
       <section className="users_dash row">
-        <div className="sidebar p-0 col-2">
+        <div
+          className={`p-0 col-xl-2 ${showSidebar ? "sidebar_open" : "sidebar"}`}
+        >
           <div className="sidebar_logo d-flex align-items-center">
             <Link to={"/"}>
               <img src={logoSmall} alt="logo" className="img-fluid" />
@@ -130,10 +140,23 @@ export default function UserDetails() {
             </ul>
           </div>
         </div>
-        <div className="users_list_container col-10 px-5 pt-5 d-flex align-items-center justify-content-center">
+        <div
+          className={`users_list_container col-xl-10 px-5 pt-5 d-flex align-items-center justify-content-center ${
+            showSidebar ? "" : "col-12"
+          }`}
+        >
+          <button
+            className="sidebar_toggler details_page_toggler btn p-0"
+            onClick={toggleSidebar}
+          >
+            {showSidebar ? (
+              <AiOutlineClose color="#198754" size={30} />
+            ) : (
+              <GiHamburgerMenu color="#198754" size={30} />
+            )}
+          </button>
           <div className="user_details_box d-flex flex-column align-items-center">
             <div className="user_img mb-5">
-              {/* <img src="" alt="" className="img-fluid" /> */}
               <svg
                 width="100"
                 height="100"
