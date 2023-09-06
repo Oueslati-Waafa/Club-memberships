@@ -1,15 +1,16 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Dashboard.css";
 
-import { AiFillEye } from "react-icons/ai";
-import { AiFillEyeInvisible } from "react-icons/ai";
 import { IoIosArrowDroprightCircle } from "react-icons/io";
-import { Button, Form, InputGroup } from "react-bootstrap";
+import { AiFillCrown } from "react-icons/ai";
+import { Form } from "react-bootstrap";
 
 import logoSmall from "../assets/logo-small.png";
-import { Link } from "react-router-dom";
+import axios from "axios";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function Dashboard() {
+  const navigate = useNavigate();
   // const [password, setPassword] = useState("");
   // const [showForm, setShowForm] = useState(false);
 
@@ -75,6 +76,60 @@ export default function Dashboard() {
       telephone: "+4917683174731",
     },
   ];
+
+  const [showmenu, setShowMenu] = useState(false);
+
+  const toggleMenu = () => {
+    setShowMenu(!showmenu);
+  };
+
+  const handleLogout = () => {
+    localStorage.clear();
+    navigate("/");
+  };
+
+  const [members, setMembers] = useState([]);
+
+  useEffect(() => {
+    const savedUser = JSON.parse(localStorage.getItem("admin")) || null;
+    const fetchMembers = async () => {
+      try {
+        // Replace 'YOUR_BEARER_TOKEN' with your actual bearer token
+        const bearerToken = savedUser?.token;
+
+        // Send a GET request to your API endpoint with the bearer token in headers
+        const response = await axios.get(
+          "http://127.0.0.1:9090/admin/dashboard/members-list",
+          {
+            headers: {
+              Authorization: `Bearer ${bearerToken}`,
+            },
+          }
+        );
+        setMembers(response.data.members);
+        setFiltredMembers(response.data.members);
+      } catch (error) {
+        console.error("Failed to fetch members:", error);
+      }
+    };
+    fetchMembers();
+  }, []);
+
+  const [filterValue, setFilterValue] = useState("");
+  const handleFilterChange = (event) => {
+    const filter = event.target.value;
+    setFilterValue(filter);
+  };
+
+  const [filtredMembers, setFiltredMembers] = useState([]);
+
+  const filterByRegion = () => {
+    if (filterValue === "") {
+      setFiltredMembers(members);
+    } else {
+      setFiltredMembers(members.filter((mmbr) => mmbr.region === filterValue));
+    }
+  };
 
   // const [showPassword, setShowPassword] = useState(false);
 
@@ -151,10 +206,34 @@ export default function Dashboard() {
           </div>
         </div>
         <div className="users_list_container col-10 px-5 pt-5">
-          <h2 className="users_list_header text-start fw-bold">NUTZER</h2>
+          <div className="d-flex align-items-center justify-content-between mb-5">
+            <h2 className="users_list_header text-start fw-bold">NUTZER</h2>
+            <div className="admin_icon d-flex align-items-center justify-content-between">
+              <button className="btn admin_icon_button" onClick={toggleMenu}>
+                <AiFillCrown color="gold" size={30} />
+              </button>
+              <ul
+                className={`mb-0 me-2 ${
+                  showmenu ? "admin_links_show" : "admin_links"
+                }`}
+              >
+                <li className="admin_link first_link">
+                  <Link to={"/"}>Home</Link>
+                </li>
+                <li className="admin_link logout_link" onClick={handleLogout}>
+                  Logout
+                </li>
+              </ul>
+            </div>
+          </div>
           <div className="users_list_filters d-flex justify-content-end">
-            <Form.Select className="users_list_filter me-5 border rounded-5">
-              <option>Region</option>
+            <Form.Select
+              className="users_list_filter me-5 border rounded-5"
+              onChange={handleFilterChange}
+            >
+              <option value={""}>
+                {filterValue === "" ? "Region" : "Reset"}{" "}
+              </option>
               <option className="users_list_filter_option" value="Aachen">
                 Aachen
               </option>
@@ -174,25 +253,32 @@ export default function Dashboard() {
                 Mönchengladbach
               </option>
             </Form.Select>
-            <button className="btn btn-success border rounded-5 users_list_filters_button">
+            <button
+              className="btn btn-success border rounded-5 users_list_filters_button"
+              onClick={filterByRegion}
+            >
               Suchen
             </button>
           </div>
           <div className="users_list mt-5">
-            {users.map((usr, index) => (
+            {filtredMembers.map((usr, index) => (
               <div className="user_box row p-3" key={index}>
                 <p className="user_info col-1 border-end">
                   <div className="user_icon">
                     <PersonIcon />
                   </div>
                 </p>
-                <p className="user_info col border-end">{usr.uname}</p>
-                <p className="user_info col border-end">{usr.fname}</p>
-                <p className="user_info col border-end">{usr.lname}</p>
+                <p className="user_info col border-end">{usr.username}</p>
+                <p className="user_info col border-end">{usr.firstname}</p>
+                <p className="user_info last_name col border-end">
+                  {usr.lastname}
+                </p>
                 <p className="user_info col border-end">{usr.region}</p>
                 <p className="user_info col-1">
                   <button className="btn user_info_btn">
-                    <IoIosArrowDroprightCircle size={30} color={"#198754"} />
+                    <Link to={`/member/${usr?._id}`}>
+                      <IoIosArrowDroprightCircle size={30} color={"#198754"} />
+                    </Link>
                   </button>
                 </p>
               </div>

@@ -1,0 +1,74 @@
+.sidebar_links a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.user_img {
+  background-color: #198754;
+  width: fit-content;
+  padding: 1rem;
+  border-radius: 2rem;
+}
+
+.user_detail_label {
+  font-size: 0.8rem;
+  opacity: 0.9;
+  text-align: start;
+}
+
+.user_detail_info {
+  font-weight: bold;
+  text-align: start;
+  word-wrap: break-word;
+}
+
+.user_delete_btn {
+  background: rgba(0, 0, 0, 0.33);
+}
+
+.user_delete_btn:focus,
+.user_delete_btn:hover {
+  color: #000 !important;
+}
+
+.user_details_box {
+  background: #fefffe;
+  box-shadow: 0.94024px 6.58165px 62.99579px 0px rgba(0, 0, 0, 0.1);
+  border-radius: 2rem;
+  position: relative;
+  padding: 6rem 2rem 3rem;
+}
+
+@media (min-width: 1440px) {
+  .user_details_box {
+    width: 40%;
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1440px) {
+  .user_details_box {
+    width: 53%;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .user_details_box {
+    width: 75%;
+  }
+}
+
+@media (max-width: 768px) {
+  .user_details_box {
+    width: 95%;
+  }
+}
+
+.user_img {
+  position: absolute;
+  top: -3rem;
+}
+
+.user_details_content {
+  width: 80%;
+  margin: 0 auto;
+}

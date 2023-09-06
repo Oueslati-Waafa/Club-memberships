@@ -6,10 +6,63 @@ import logo from "../../assets/logo.png";
 import personIcon from "../../assets/icons/person.png";
 import keyIcon from "../../assets/icons/key.png";
 
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Form, InputGroup } from "react-bootstrap";
+import { useState } from "react";
+import axios from "axios";
 
 export default function Login() {
+  const navigate = useNavigate();
+
+  const [uname, setUname] = useState("");
+  const [password, setPassword] = useState("");
+  const [btnLock, setBtnLock] = useState(false);
+
+  const onUnameChange = (e) => {
+    const unameTemp = e.target.value;
+    setUname(unameTemp);
+    // console.log(unameTemp);
+  };
+
+  const onPasswordChange = (e) => {
+    const passwordTemp = e.target.value;
+    setPassword(passwordTemp);
+    // console.log(fname);
+  };
+
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    setBtnLock(true); // Disable the login button
+
+    try {
+      const response = await axios.post("http://127.0.0.1:9090/admin/login", {
+        username: uname,
+        password,
+      });
+
+      if (response.status === 200) {
+        // Successful login
+        const data = response.data;
+        console.log(data.admin);
+
+        // Store the token in local storage
+        localStorage.setItem("admin", JSON.stringify(data.admin));
+
+        // Redirect to the dashboard
+        navigate("/dashboard");
+      } else {
+        // Failed login
+        console.error("Login failed:", response.data.error);
+        // Handle the error, e.g., display an error message to the user
+      }
+    } catch (error) {
+      console.error("An error occurred during login:", error);
+      // Handle the error, e.g., display an error message to the user
+    } finally {
+      setBtnLock(false); // The login button is not re-enabled in this case
+    }
+  };
+
   return (
     <main className="login_container">
       <div className="background d-flex flex-column justify-content-between align-items-center">
@@ -29,7 +82,7 @@ export default function Login() {
         <Form
           className="login_form"
           onSubmit={(e) => {
-            // handleRegistration(e);
+            handleLogin(e);
           }}
         >
           <Form.Group>
@@ -45,12 +98,12 @@ export default function Login() {
 
               <Form.Control
                 type="text"
-                placeholder="User name..."
+                placeholder="Benutzername..."
                 className="rounded-right"
                 onChange={(e) => {
-                  //   onFnameChange(e);
+                  onUnameChange(e);
                 }}
-                // value={fname}
+                value={uname}
               />
             </InputGroup>
           </Form.Group>
@@ -66,16 +119,21 @@ export default function Login() {
               </InputGroup.Text>
 
               <Form.Control
-                type="text"
+                type="password"
                 placeholder="Passwort..."
                 className="rounded-right"
                 onChange={(e) => {
-                  //   onFnameChange(e);
+                  onPasswordChange(e);
                 }}
-                // value={fname}
+                value={password}
               />
             </InputGroup>
           </Form.Group>
+          <div className="w-100 d-flex justify-content-end mb-2">
+            <button className="btn btn-link help_link">
+              Brauchen Sie Hilfe? Kontaktieren Sie uns.
+            </button>
+          </div>
           <p className="login_form_text text-muted">
             Wir verwenden deine personenbezogenen Daten, um eine möglichst gute
             Benutzererfahrung auf dieser Website zu ermöglichen, den Zugriff auf
@@ -92,21 +150,10 @@ export default function Login() {
           </p>
           <button
             className="login_form_button btn text-uppercase"
-            type="button"
-            // disabled={
-            //   fname === "" ||
-            //   lname === "" ||
-            //   uname === "" ||
-            //   email === "" ||
-            //   telephone === "" ||
-            //   selectedRegion === "" ||
-            //   btnLock
-            //     ? true
-            //     : false
-            // }
+            type="submit"
+            disabled={uname === "" || password === "" || btnLock ? true : false}
           >
-            {/* {btnLock ? "..." : "Registrieren"} */}
-            Einloggen
+            {btnLock ? "..." : "Einloggen"}
           </button>
         </Form>
       </div>

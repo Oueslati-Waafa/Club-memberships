@@ -104,14 +104,38 @@
   background: #fff;
 }
 
-.users_list_filters_button {
-  width: 15%;
-}
+@media (min-width: 1440px) {
+  .users_list_filters_button {
+    width: 15%;
+  }
 
-.users_list_filter {
-  border-left: 1px solid;
-  border-color: #dee2e6;
-  width: 15%;
+  .users_list_filter {
+    border-left: 1px solid;
+    border-color: #dee2e6;
+    width: 15%;
+  }
+}
+@media (min-width: 1024px) and (max-width: 1440px) {
+  .users_list_filters_button {
+    width: 20%;
+  }
+
+  .users_list_filter {
+    border-left: 1px solid;
+    border-color: #dee2e6;
+    width: 20%;
+  }
+}
+@media (min-width: 768px) and (max-width: 1024px) {
+  .users_list_filters_button {
+    width: 25%;
+  }
+
+  .users_list_filter {
+    border-left: 1px solid;
+    border-color: #dee2e6;
+    width: 25%;
+  }
 }
 
 /* Style the select element */
@@ -161,16 +185,79 @@
 }
 
 .user_info {
-    margin-bottom: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
+  margin-bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
 }
 
 .user_icon {
-    width: fit-content;
-    border-radius: 50%;
-    background-color: #198754;
-    padding: .5rem .7rem;
+  width: fit-content;
+  border-radius: 50%;
+  background-color: #198754;
+  padding: 0.5rem 0.7rem;
+}
+
+.admin_icon {
+  background-color: #198754;
+  border-radius: 3rem;
+  padding: 0.5rem;
+}
+
+.admin_icon_button:focus,
+.admin_icon_button {
+  border: none !important;
+}
+
+.admin_icon:hover {
+  background-color: transparent;
+  outline: 0.1rem solid #198754;
+}
+
+.admin_icon:hover .admin_links_show {
+  color: #000;
+}
+
+@media (max-width: 768px) {
+  .last_name {
+    display: none;
+  }
+}
+
+.admin_links_show {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  opacity: 1;
+  /* min-width: 10rem;
+  max-width: 20rem; */
+  color: white;
+  font-weight: bold;
+  transition: all 0.3s ease-in-out;
+}
+
+.admin_links_show .first_link {
+  margin-right: 1rem;
+}
+
+.admin_links {
+  list-style: none;
+  margin: 0 !important;
+  display: flex;
+  align-items: center;
+  padding: 0;
+  max-width: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: all 0.3s ease-in-out;
+}
+
+.admin_link a {
+  text-decoration: none !important ;
+  color: inherit !important;
+}
+
+.logout_link:hover {
+  cursor: pointer;
 }

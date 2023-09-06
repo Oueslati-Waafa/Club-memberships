@@ -8,6 +8,8 @@ import PolicyPage from "./Pages/PolicyPage/PolicyPage";
 import FaqPage from "./Pages/FaqPage/FaqPage";
 import Dashboard from "./Dashboard/Dashboard";
 import Login from "./Dashboard/AdminAuth/Login";
+import ProtectedRoute from "./ProtectedRoute";
+import UserDetails from "./Dashboard/UserDetails/UserDetails";
 
 function App() {
   return (
@@ -18,7 +20,22 @@ function App() {
           <Route path="/regulation" element={<RegulationPage />} />
           <Route path="/policy" element={<PolicyPage />} />
           <Route path="/faq" element={<FaqPage />} />
-          <Route path="/dashboard" element={<Dashboard />} />
+          <Route
+            path="/dashboard"
+            element={
+              <ProtectedRoute>
+                <Dashboard />
+              </ProtectedRoute>
+            }
+          ></Route>
+          <Route
+            path="/member/:slug"
+            element={
+              <ProtectedRoute>
+                <UserDetails />
+              </ProtectedRoute>
+            }
+          ></Route>
           <Route path="/login" element={<Login />} />
         </Routes>
         <FooterSection />

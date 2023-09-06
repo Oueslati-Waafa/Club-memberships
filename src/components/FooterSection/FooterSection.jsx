@@ -10,7 +10,9 @@ export default function FooterSection() {
 
   const location = useLocation();
   const hideFooter =
-    location.pathname === "/dashboard" || location.pathname === "/login";
+    location.pathname === "/dashboard" ||
+    location.pathname === "/login" ||
+    location.pathname.includes("/member");
 
   if (hideFooter) {
     return null;
