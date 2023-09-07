@@ -139,8 +139,7 @@ export default function Login() {
             Benutzererfahrung auf dieser Website zu ermöglichen, den Zugriff auf
             dein Konto zu verwalten und für weitere Zwecke, die in unserer{" "}
             <a
-              href="https://csc-maps.de/datenschutz/"
-              target={"_blank"}
+              href="#"
               rel="noreferrer"
               className="text-dark fw-bold"
             >

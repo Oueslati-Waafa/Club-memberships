@@ -11,7 +11,6 @@
 }
 
 .user_detail_label {
-  font-size: 0.8rem;
   opacity: 0.9;
   text-align: start;
 }
@@ -20,6 +19,32 @@
   font-weight: bold;
   text-align: start;
   word-wrap: break-word;
+}
+
+@media (min-width: 576px) {
+  .user_detail_label {
+    font-size: 0.8rem;
+  }
+}
+
+@media (min-width: 425px) and (max-width: 576px) {
+  .user_detail_label {
+    font-size: 0.7rem;
+  }
+
+  .user_detail_info {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 425px) {
+  .user_detail_label {
+    font-size: 0.6rem;
+  }
+
+  .user_detail_info {
+    font-size: 0.7rem;
+  }
 }
 
 .user_delete_btn {
@@ -59,7 +84,9 @@
 
 @media (max-width: 768px) {
   .user_details_box {
-    width: 95%;
+    width: 100%;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
   }
 }
 

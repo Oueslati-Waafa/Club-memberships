@@ -92,7 +92,7 @@ export default function RegisterForm() {
     };
 
     if (!isValidFname) {
-      toast.error("Invalid first name", {
+      toast.error("Ungültiger Vorname", {
         position: "top-right",
         autoClose: 2000,
         hideProgressBar: false,
@@ -105,7 +105,7 @@ export default function RegisterForm() {
     }
 
     if (!isValidLname) {
-      toast.error("Invalid last name", {
+      toast.error("Ungültiger Nachname", {
         position: "top-right",
         autoClose: 2000,
         hideProgressBar: false,
@@ -118,7 +118,7 @@ export default function RegisterForm() {
     }
 
     if (!isValidUname) {
-      toast.error("Invalid user name", {
+      toast.error("Ungültiger Benutzername", {
         position: "top-right",
         autoClose: 2000,
         hideProgressBar: false,
@@ -131,7 +131,7 @@ export default function RegisterForm() {
     }
 
     if (selectedRegion === "") {
-      toast.error("Please select your region", {
+      toast.error("Bitte wählen Sie Ihre Region aus.", {
         position: "top-right",
         autoClose: 2000,
         hideProgressBar: false,
@@ -144,7 +144,7 @@ export default function RegisterForm() {
     }
 
     if (!isValidEmail) {
-      toast.error("Invalid email", {
+      toast.error("Ungültige E-Mail-Adresse", {
         position: "top-right",
         autoClose: 2000,
         hideProgressBar: false,
@@ -157,7 +157,7 @@ export default function RegisterForm() {
     }
 
     if (!isValidTelephone) {
-      toast.error("Invalid phone number", {
+      toast.error("Ungültige Telefonnummer", {
         position: "top-right",
         autoClose: 2000,
         hideProgressBar: false,
@@ -191,7 +191,7 @@ export default function RegisterForm() {
         console.log(responseData);
 
         if (response.ok) {
-          toast.success("Registration successful", {
+          toast.success("Vielen Dank für Ihre Registrierung.", {
             position: "top-right",
             autoClose: 2000,
             hideProgressBar: false,
@@ -209,7 +209,26 @@ export default function RegisterForm() {
           setSelectedRegion("");
           setBtnLock(false);
         } else {
-          toast.error(responseData.message, {
+          toast.error(
+            "Es ist ein Fehler aufgetreten. Bitte versuchen Sie es später erneut.",
+            {
+              position: "top-right",
+              autoClose: 2000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+              theme: "light",
+            }
+          );
+          setBtnLock(false);
+        }
+      } catch (error) {
+        console.error("An error occurred:", error);
+        toast.error(
+          "Es ist ein Fehler aufgetreten. Bitte versuchen Sie es später erneut.",
+          {
             position: "top-right",
             autoClose: 2000,
             hideProgressBar: false,
@@ -218,21 +237,8 @@ export default function RegisterForm() {
             draggable: true,
             progress: undefined,
             theme: "light",
-          });
-          setBtnLock(false);
-        }
-      } catch (error) {
-        console.error("An error occurred:", error);
-        toast.error("An error occurred. Please try again later.", {
-          position: "top-right",
-          autoClose: 2000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "light",
-        });
+          }
+        );
         setBtnLock(false);
       }
     }
@@ -470,12 +476,7 @@ export default function RegisterForm() {
             Wir verwenden deine personenbezogenen Daten, um eine möglichst gute
             Benutzererfahrung auf dieser Website zu ermöglichen, den Zugriff auf
             dein Konto zu verwalten und für weitere Zwecke, die in unserer{" "}
-            <a
-              href="https://csc-maps.de/datenschutz/"
-              target={"_blank"}
-              rel="noreferrer"
-              className="text-dark fw-bold"
-            >
+            <a href="#" rel="noreferrer" className="text-dark fw-bold">
               Datenschutzerklärung
             </a>{" "}
             beschrieben sind.

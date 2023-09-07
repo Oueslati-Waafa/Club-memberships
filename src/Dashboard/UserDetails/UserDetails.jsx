@@ -59,7 +59,7 @@ export default function UserDetails() {
         }
       );
 
-      toast.success("Member deleted successfully", {
+      toast.success("Mitglied erfolgreich gelöscht.", {
         position: "top-right",
         autoClose: 2000,
         hideProgressBar: false,
@@ -73,17 +73,22 @@ export default function UserDetails() {
       // Redirect to a different page or perform any necessary action after deletion
       navigate("/dashboard"); // Redirect to the dashboard, for example
     } catch (error) {
-      console.error("Failed to delete member:", error);
-      toast.error("An error occurred. Please try again later.", {
-        position: "top-right",
-        autoClose: 2000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-      });
+      console.error(
+        "Löschen des Mitglieds fehlgeschlagen. Bitte versuchen Sie es erneut!"
+      );
+      toast.error(
+        "Ein Fehler ist aufgetreten. Bitte versuchen Sie es erneut.",
+        {
+          position: "top-right",
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        }
+      );
     }
   };
 
@@ -146,7 +151,7 @@ export default function UserDetails() {
           }`}
         >
           <button
-            className="sidebar_toggler details_page_toggler btn p-0"
+            className="sidebar_toggler details_page_toggler d-xl-none btn p-0"
             onClick={toggleSidebar}
           >
             {showSidebar ? (

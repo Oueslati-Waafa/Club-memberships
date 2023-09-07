@@ -24,49 +24,40 @@ export default function RegulationPage() {
       <div className="regulation_content">
         <div className="regulation_box py-5">
           <h2 className="my-5 fw-bold">Impressum</h2>
-          <p className="text-start px-5 mb-3">
-            Greenrise GmbH
+          <p className="text-start contacts px-5 mb-3">
+            XXXXXXX XXXXX
             <br />
-            Ringbahnstr. 22-30 12099
+            XXXXXXXXXXX XXX-XX XXXXX
             <br />
-            Berlin Deutschland
+            XXXXX XXXXXXXXX
             <br />
-            Tel.: 030/62856518
+            Tel.: XXX/XXXXXXXX
             <br />
-            E-Mail: info@csc-maps.de
+            E-Mail: XXXX@XXXXXXXX.XX
             <br />
             Registergericht: Amtsgericht Charlottenburg
             <br />
-            Registernummer: HRB 246256
+            Registernummer: HRB XXXXXX
             <br />
-            Geschäftsführer: Alexander Hintz, Michael Lessig, Dr. Peter
-            Reinhardt
+            Geschäftsführer: XXXXXXXX XXXXX, XXXXXXXX XXXXX, Dr. XXXXX XXXXXXXXX
             <br />
-            Umsatzsteuer-Identifikationsnummer: DE299208621
+            Umsatzsteuer-Identifikationsnummer: DEXXXXXXXXXX
             <br />
-            Verantwortliche/r i.S.d. § 18 Abs. 2<br />
-            MStV:Alexander Hintz
-            <br />
-            Plattform der EU-Kommission zur Online-Streitbeilegung:
-            https://ec.europa.eu/odr
-            <br />
-            Wir sind zur Teilnahme an einem Streitbeilegungsverfahren vor einer
-            Verbraucherschlichtungsstelle weder verpflichtet noch bereit.
+            MStV:XXXXXXXXX XXXXX
           </p>
-          <p className="extra_bold text-start px-5">Disclaimer :</p>
+          <p className="extra_bold text-start px-5">Lorem ipsum :</p>
           <p className="text-start px-5 mb-5">
-            Die Artikel und Informationen auf CSC Maps sind nach bestem Wissen
-            und Gewissen sorgfältig zusammengestellt. Sie erheben jedoch keinen
-            Anspruch auf Vollständigkeit und Ausschließlichkeit, stellen keine
-            Rechtsauskunft dar und ersetzen in keinem Fall eine individuelle
-            Rechtsberatung. Ebenso übernehmen wir keinerlei Gewähr für die
-            Aktualität, Korrektheit oder Qualität der bereitgestellten
-            Informationen. Eine Haftung für Schäden materieller oder ideeller
-            Art, die durch die Nutzung oder Nichtnutzung der dargebotenen
-            Informationen bzw. durch die Nutzung fehlerhafter und
-            unvollständiger Informationen verursacht wurden, ist grundsätzlich
-            ausgeschlossen, sofern auf unserer Seite kein nachweislich
-            vorsätzliches oder grob fahrlässiges Verschulden vorliegt.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum
+            ultrices ipsum et hendrerit. Nullam euismod tellus eget justo
+            vulputate, ut aliquam odio viverra. Fusce eleifend varius quam, vel
+            feugiat arcu interdum ut. Proin eu sapien eu orci ultrices
+            ullamcorper. Sed nec tincidunt lorem, in suscipit erat. Nulla
+            facilisi. Curabitur efficitur leo in eros luctus, sit amet varius
+            massa suscipit. Donec vehicula purus ut libero posuere, ac
+            vestibulum felis ullamcorper. Aliquam ut urna non ex sodales
+            malesuada. Duis laoreet, metus ut vestibulum cursus, nulla erat
+            feugiat velit, at tempus nisi dui ac velit. Aenean ut tristique
+            sapien. Nulla facilisi. Sed a dolor sapien. Suspendisse potenti.
           </p>
         </div>
       </div>

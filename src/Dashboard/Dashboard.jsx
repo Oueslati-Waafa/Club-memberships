@@ -214,14 +214,14 @@ export default function Dashboard() {
                   <Link to={"/"}>Home</Link>
                 </li>
                 <li className="admin_link logout_link" onClick={handleLogout}>
-                  Logout
+                  Abmelden
                 </li>
               </ul>
             </div>
           </div>
           <div className="users_list_filters d-flex justify-content-end">
             <Form.Select
-              className="users_list_filter me-5 border rounded-5"
+              className="users_list_filter me-sm-5 me-1 border rounded-5"
               onChange={handleFilterChange}
             >
               <option value={""}>
@@ -256,18 +256,24 @@ export default function Dashboard() {
           <div className="users_list mt-5">
             {filtredMembers.map((usr, index) => (
               <div className="user_box row p-3" key={index}>
-                <p className="user_info person_icon col-1 border-end">
+                <p className="user_info person_icon col-sm-1 border-sm-end">
                   <div className="user_icon">
                     <PersonIcon />
                   </div>
                 </p>
-                <p className="user_info col border-end">{usr.username}</p>
-                <p className="user_info col border-end">{usr.firstname}</p>
-                <p className="user_info last_name col border-end">
+                <p className="user_info col-sm col-5 border-sm-end">
+                  {usr.username}
+                </p>
+                <p className="user_info last_name col border-sm-end">
+                  {usr.firstname}
+                </p>
+                <p className="user_info last_name col border-sm-end">
                   {usr.lastname}
                 </p>
-                <p className="user_info col border-end">{usr.region}</p>
-                <p className="user_info col-1">
+                <p className="user_info col-sm col-5 border-sm-end">
+                  {usr.region}
+                </p>
+                <p className="user_info col-sm-1 col-2">
                   <button className="btn user_info_btn">
                     <Link to={`/member/${usr?._id}`}>
                       <IoIosArrowDroprightCircle size={30} color={"#198754"} />
