@@ -86,3 +86,18 @@
 .help_link:hover {
   color: #000;
 }
+
+.modal-content {
+  border-radius: 52px;
+  border: 1px solid rgba(18, 121, 16, 0.53);
+  background: #fff;
+  box-shadow: -1px 29px 42px 10px rgba(18, 121, 16, 0.11);
+  padding: 2rem;
+}
+
+.modal-content .form-control {
+  border-left: 1px solid;
+  border-color: #dee2e6;
+  border-radius: 30px;
+  padding: 1rem;
+}

@@ -1,5 +1,6 @@
 import React from "react";
 import "./Login.css";
+import emailjs from "emailjs-com";
 
 import SectionBottom from "../../assets/section_bottom3.png";
 import logo from "../../assets/logo.png";
@@ -7,9 +8,12 @@ import personIcon from "../../assets/icons/person.png";
 import keyIcon from "../../assets/icons/key.png";
 
 import { Link, useNavigate } from "react-router-dom";
-import { Form, InputGroup } from "react-bootstrap";
+import { Button, Form, InputGroup, Modal } from "react-bootstrap";
 import { useState } from "react";
 import axios from "axios";
+
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function Login() {
   const navigate = useNavigate();
@@ -54,17 +58,107 @@ export default function Login() {
         // Failed login
         console.error("Login failed:", response.data.error);
         // Handle the error, e.g., display an error message to the user
+        toast.error(
+          "Es ist ein Fehler aufgetreten. Bitte versuchen Sie es später erneut.",
+          {
+            position: "top-right",
+            autoClose: 2000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+          }
+        );
       }
     } catch (error) {
       console.error("An error occurred during login:", error);
       // Handle the error, e.g., display an error message to the user
+      toast.error(
+        "Es ist ein Fehler aufgetreten. Bitte versuchen Sie es später erneut.",
+        {
+          position: "top-right",
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        }
+      );
     } finally {
       setBtnLock(false); // The login button is not re-enabled in this case
     }
   };
 
+  const [showModal, setShowModal] = useState(false);
+  const [message, setMessage] = useState("");
+  const [email, setEmail] = useState("");
+
+  const sendMessage = () => {
+    // Send an email using emailjs-com
+    emailjs
+      .send(
+        "service_e1lwpxr",
+        "template_s823pb8",
+        {
+          message: message,
+          from_email: email,
+        },
+        "YP1G-xa_iZ9fhYFzS"
+      )
+      .then(
+        function (response) {
+          console.log("Email sent successfully!", response);
+          toast.success("E-Mail erfolgreich versendet!", {
+            position: "top-right",
+            autoClose: 2000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+          });
+          setMessage("");
+          setEmail("");
+        },
+        function (error) {
+          console.error("Email sending failed:", error);
+          toast.error(
+            "Es ist ein Fehler aufgetreten. Bitte versuchen Sie es später erneut.",
+            {
+              position: "top-right",
+              autoClose: 2000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+              theme: "light",
+            }
+          );
+        }
+      );
+    setShowModal(false); // Close the modal after sending the message
+  };
+
   return (
     <main className="login_container">
+      <ToastContainer
+        position="top-right"
+        autoClose={2000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
       <div className="background d-flex flex-column justify-content-between align-items-center">
         <div className="login_logo">
           <Link to="/">
@@ -130,19 +224,65 @@ export default function Login() {
             </InputGroup>
           </Form.Group>
           <div className="w-100 d-flex justify-content-end mb-2">
-            <button className="btn btn-link help_link">
+            <button
+              className="btn btn-link help_link"
+              type="button"
+              onClick={() => setShowModal(true)}
+            >
               Brauchen Sie Hilfe? Kontaktieren Sie uns.
             </button>
           </div>
+          <Modal show={showModal} onHide={() => setShowModal(false)} centered>
+            <Modal.Header closeButton>
+              <Modal.Title>Nachricht senden</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+              <Form.Group>
+                <Form.Label>Email:</Form.Label>
+                <InputGroup>
+                  <InputGroup.Text>
+                    <img
+                      src={personIcon}
+                      alt="email icon"
+                      width="20px"
+                      className="icon-img"
+                    />
+                  </InputGroup.Text>
+                  <Form.Control
+                    type="email"
+                    placeholder="Ihre E-Mail..."
+                    className="rounded-right border-start-0"
+                    onChange={(e) => setEmail(e.target.value)}
+                    value={email}
+                  />
+                </InputGroup>
+              </Form.Group>
+
+              <Form.Group controlId="message">
+                <Form.Label>Nachricht:</Form.Label>
+                <Form.Control
+                  as="textarea"
+                  rows={4}
+                  placeholder="Ihre Nachricht hier..."
+                  value={message}
+                  onChange={(e) => setMessage(e.target.value)}
+                />
+              </Form.Group>
+            </Modal.Body>
+            <Modal.Footer>
+              <Button variant="secondary" onClick={() => setShowModal(false)}>
+                Schließen
+              </Button>
+              <Button variant="primary" onClick={sendMessage}>
+                Senden
+              </Button>
+            </Modal.Footer>
+          </Modal>
           <p className="login_form_text text-muted">
             Wir verwenden deine personenbezogenen Daten, um eine möglichst gute
             Benutzererfahrung auf dieser Website zu ermöglichen, den Zugriff auf
             dein Konto zu verwalten und für weitere Zwecke, die in unserer{" "}
-            <a
-              href="#"
-              rel="noreferrer"
-              className="text-dark fw-bold"
-            >
+            <a href="#" rel="noreferrer" className="text-dark fw-bold">
               Datenschutzerklärung
             </a>{" "}
             beschrieben sind.
