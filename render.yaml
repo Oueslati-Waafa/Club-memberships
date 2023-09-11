@@ -1,4 +1,0 @@
-routes:
-  - path: "*"
-    rewrite:
-      to: "/index.html"
