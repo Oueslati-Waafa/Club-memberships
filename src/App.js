@@ -10,23 +10,30 @@ import Dashboard from "./Dashboard/Dashboard";
 import Login from "./Dashboard/AdminAuth/Login";
 import ProtectedRoute from "./ProtectedRoute";
 import UserDetails from "./Dashboard/UserDetails/UserDetails";
+import { useEffect } from "react";
 
 function App() {
+  // Disable context menu (right-click menu)
+  useEffect(() => {
+    const handleContextMenu = (e) => {
+      e.preventDefault();
+    };
+    document.addEventListener("contextmenu", handleContextMenu);
+    return () => {
+      document.removeEventListener("contextmenu", handleContextMenu);
+    };
+  }, []);
+
+  // Disable keyboard shortcuts
   document.onkeydown = function (e) {
-    if (e.keyCode == 123) {
-      return false;
-    }
-    if (e.ctrlKey && e.shiftKey && e.keyCode == "I".charCodeAt(0)) {
-      return false;
-    }
-    if (e.ctrlKey && e.shiftKey && e.keyCode == "C".charCodeAt(0)) {
-      return false;
-    }
-    if (e.ctrlKey && e.shiftKey && e.keyCode == "J".charCodeAt(0)) {
-      return false;
-    }
-    if (e.ctrlKey && e.keyCode == "U".charCodeAt(0)) {
-      return false;
+    if (
+      e.keyCode === 123 ||
+      (e.ctrlKey && e.shiftKey && e.keyCode === "I".charCodeAt(0)) ||
+      (e.ctrlKey && e.shiftKey && e.keyCode === "C".charCodeAt(0)) ||
+      (e.ctrlKey && e.shiftKey && e.keyCode === "J".charCodeAt(0)) ||
+      (e.ctrlKey && e.keyCode === "U".charCodeAt(0))
+    ) {
+      e.preventDefault();
     }
   };
   return (
