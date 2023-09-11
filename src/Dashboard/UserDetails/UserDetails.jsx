@@ -30,7 +30,7 @@ export default function UserDetails() {
       try {
         const bearerToken = savedUser?.token;
         const response = await axios.get(
-          `http://127.0.0.1:9090/admin/dashboard/members-list/${memberId}`,
+          `https://hanfpioniere.onrender.com/admin/dashboard/members-list/${memberId}`,
           {
             headers: {
               Authorization: `Bearer ${bearerToken}`,
@@ -51,7 +51,7 @@ export default function UserDetails() {
       const bearerToken = savedUser?.token;
 
       await axios.delete(
-        `http://127.0.0.1:9090/admin/dashboard/members/delete/${memberId}`,
+        `https://hanfpioniere.onrender.com/admin/dashboard/members/delete/${memberId}`,
         {
           headers: {
             Authorization: `Bearer ${bearerToken}`,

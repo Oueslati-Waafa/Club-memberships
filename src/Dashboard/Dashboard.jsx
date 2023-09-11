@@ -66,7 +66,7 @@ export default function Dashboard() {
 
         // Send a GET request to your API endpoint with the bearer token in headers
         const response = await axios.get(
-          "http://127.0.0.1:9090/admin/dashboard/members-list",
+          "https://hanfpioniere.onrender.com/admin/dashboard/members-list",
           {
             headers: {
               Authorization: `Bearer ${bearerToken}`,

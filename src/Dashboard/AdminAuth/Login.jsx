@@ -39,7 +39,7 @@ export default function Login() {
     setBtnLock(true); // Disable the login button
 
     try {
-      const response = await axios.post("http://127.0.0.1:9090/admin/login", {
+      const response = await axios.post("https://hanfpioniere.onrender.com/admin/login", {
         username: uname,
         password,
       });

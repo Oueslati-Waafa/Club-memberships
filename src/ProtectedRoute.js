@@ -11,7 +11,7 @@ export default function ProtectedRoute({ children }) {
     async function getUser() {
       try {
         const response = await axios.get(
-          `http://127.0.0.1:9090/admin/getAdmin/${savedUser?.username}`
+          `https://hanfpioniere.onrender.com/admin/getAdmin/${savedUser?.username}`
         );
         const user = response.data;
         setIsAuthenticated(user !== []);

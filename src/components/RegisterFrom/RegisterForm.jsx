@@ -179,7 +179,7 @@ export default function RegisterForm() {
     ) {
       setBtnLock(true);
       try {
-        const response = await fetch("http://127.0.0.1:9090/register", {
+        const response = await fetch("https://hanfpioniere.onrender.com/register", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
