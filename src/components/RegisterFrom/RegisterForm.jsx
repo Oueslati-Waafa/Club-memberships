@@ -179,13 +179,16 @@ export default function RegisterForm() {
     ) {
       setBtnLock(true);
       try {
-        const response = await fetch("https://hanfpioniere.onrender.com/register", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(requestData),
-        });
+        const response = await fetch(
+          "https://hanfpioniere.onrender.com/register",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(requestData),
+          }
+        );
 
         const responseData = await response.json();
         console.log(responseData);
@@ -476,9 +479,9 @@ export default function RegisterForm() {
             Wir verwenden deine personenbezogenen Daten, um eine möglichst gute
             Benutzererfahrung auf dieser Website zu ermöglichen, den Zugriff auf
             dein Konto zu verwalten und für weitere Zwecke, die in unserer{" "}
-            <a href="#" rel="noreferrer" className="text-dark fw-bold">
+            <Link to={"/policy"} className="text-dark fw-bold">
               Datenschutzerklärung
-            </a>{" "}
+            </Link>{" "}
             beschrieben sind.
           </p>
           <button
