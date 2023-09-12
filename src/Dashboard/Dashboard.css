@@ -290,7 +290,7 @@
   }
 }
 
-@media (max-width: 576px) {
+@media (min-width: 425px) and (max-width: 576px) {
   .user_box {
     font-size: 0.8rem;
   }
@@ -301,5 +301,41 @@
 
   .user_info_btn {
     margin-left: 1rem;
+  }
+}
+
+@media (max-width: 425px) {
+  .user_box {
+    font-size: 0.65rem;
+  }
+
+  .person_icon {
+    display: none;
+  }
+
+  .user_info_btn {
+    margin-left: 1rem;
+  }
+}
+
+@media (min-width: 576px) {
+  .admin_menu {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+@media (max-width: 576px) {
+  .admin_menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .sidebar_toggler_container {
+    width: 100%;
   }
 }

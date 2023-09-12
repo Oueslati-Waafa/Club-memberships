@@ -185,8 +185,10 @@ export default function Dashboard() {
             showSidebar ? "" : "col-12"
           }`}
         >
-          <div className="d-flex align-items-center justify-content-between mb-5">
-            <div className="d-flex align-items-center">
+          <div
+            className="admin_menu mb-5"
+          >
+            <div className="d-flex sidebar_toggler_container align-items-center justify-content-between">
               <button
                 className="sidebar_toggler btn p-0 d-block d-xl-none"
                 onClick={toggleSidebar}
@@ -201,7 +203,7 @@ export default function Dashboard() {
                 NUTZER
               </h2>
             </div>
-            <div className="admin_icon d-flex align-items-center justify-content-between">
+            <div className="admin_icon d-flex align-items-center justify-content-between mt-sm-0 mt-3">
               <button className="btn admin_icon_button" onClick={toggleMenu}>
                 <AiFillCrown color="gold" size={30} />
               </button>
