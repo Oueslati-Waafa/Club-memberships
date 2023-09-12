@@ -281,15 +281,6 @@ export default function Login() {
               </Button>
             </Modal.Footer>
           </Modal>
-          <p className="login_form_text text-muted">
-            Wir verwenden deine personenbezogenen Daten, um eine möglichst gute
-            Benutzererfahrung auf dieser Website zu ermöglichen, den Zugriff auf
-            dein Konto zu verwalten und für weitere Zwecke, die in unserer{" "}
-            <Link to={"/policy"} className="text-dark fw-bold">
-              Datenschutzerklärung
-            </Link>{" "}
-            beschrieben sind.
-          </p>
           <button
             className="login_form_button btn text-uppercase"
             type="submit"
