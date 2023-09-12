@@ -24,40 +24,29 @@ export default function RegulationPage() {
       <div className="regulation_content">
         <div className="regulation_box py-5">
           <h2 className="my-5 fw-bold">Impressum</h2>
-          <p className="text-start contacts px-5 mb-3">
-            XXXXXXX XXXXX
+          <p className="text-start px-5 mb-3">
+            Jameal care e.v.
             <br />
-            XXXXXXXXXXX XXX-XX XXXXX
+            Hariksee Str 53
             <br />
-            XXXXX XXXXXXXXX
+            41372 Niederkrüchten
             <br />
-            Tel.: XXX/XXXXXXXX
-            <br />
-            E-Mail: XXXX@XXXXXXXX.XX
-            <br />
-            Registergericht: Amtsgericht Charlottenburg
-            <br />
-            Registernummer: HRB XXXXXX
-            <br />
-            Geschäftsführer: XXXXXXXX XXXXX, XXXXXXXX XXXXX, Dr. XXXXX XXXXXXXXX
-            <br />
-            Umsatzsteuer-Identifikationsnummer: DEXXXXXXXXXX
-            <br />
-            MStV:XXXXXXXXX XXXXX
+            Steuernummer: 102/5113/2499
           </p>
-          <p className="extra_bold text-start px-5">Lorem ipsum :</p>
+          <p className="extra_bold text-start px-5">Disclaimer :</p>
           <p className="text-start px-5 mb-5">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum
-            ultrices ipsum et hendrerit. Nullam euismod tellus eget justo
-            vulputate, ut aliquam odio viverra. Fusce eleifend varius quam, vel
-            feugiat arcu interdum ut. Proin eu sapien eu orci ultrices
-            ullamcorper. Sed nec tincidunt lorem, in suscipit erat. Nulla
-            facilisi. Curabitur efficitur leo in eros luctus, sit amet varius
-            massa suscipit. Donec vehicula purus ut libero posuere, ac
-            vestibulum felis ullamcorper. Aliquam ut urna non ex sodales
-            malesuada. Duis laoreet, metus ut vestibulum cursus, nulla erat
-            feugiat velit, at tempus nisi dui ac velit. Aenean ut tristique
-            sapien. Nulla facilisi. Sed a dolor sapien. Suspendisse potenti.
+            Die Artikel und Informationen auf Hanfpioniere sind nach bestem
+            Wissen und Gewissen sorgfältig zusammengestellt. Sie erheben jedoch
+            keinen Anspruch auf Vollständigkeit und Ausschließlichkeit, stellen
+            keine Rechtsauskunft dar und ersetzen in keinem Fall eine
+            individuelle Rechtsberatung. Ebenso übernehmen wir keinerlei Gewähr
+            für die Aktualität, Korrektheit oder Qualität der bereitgestellten
+            Informationen. Eine Haftung für Schäden materieller oder ideeller
+            Art, die durch die Nutzung oder Nichtnutzung der dargebotenen
+            Informationen bzw. durch die Nutzung fehlerhafter und
+            unvollständiger Informationen verursacht wurden, ist grundsätzlich
+            ausgeschlossen, sofern auf unserer Seite kein nachweislich
+            vorsätzliches oder grob fahrlässiges Verschulden vorliegt.
           </p>
         </div>
       </div>

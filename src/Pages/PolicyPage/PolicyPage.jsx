@@ -23,8 +23,7 @@ export default function PolicyPage() {
       </div>
       <div className="policy_content">
         <div className="policy_box py-5">
-          <h2 className="my-5 fw-bold">Lorem Ipsum</h2>
-          <h6 className="text-start px-sm-5 px-3 fw-bold">Lorem Ipsum</h6>
+          <h2 className="my-5 fw-bold">Datenschutz</h2>
           <div className="policy_rule text-start px-sm-5 px-3">
             <p className="policy_rule_title">1) Lorem Ipsum</p>
             <p className="policy_rule_content ps-3">
