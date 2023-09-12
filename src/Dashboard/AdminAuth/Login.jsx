@@ -39,10 +39,13 @@ export default function Login() {
     setBtnLock(true); // Disable the login button
 
     try {
-      const response = await axios.post("https://hanfpioniere.onrender.com/admin/login", {
-        username: uname,
-        password,
-      });
+      const response = await axios.post(
+        "https://hanfpioniere.onrender.com/admin/login",
+        {
+          username: uname,
+          password,
+        }
+      );
 
       if (response.status === 200) {
         // Successful login
@@ -282,9 +285,9 @@ export default function Login() {
             Wir verwenden deine personenbezogenen Daten, um eine möglichst gute
             Benutzererfahrung auf dieser Website zu ermöglichen, den Zugriff auf
             dein Konto zu verwalten und für weitere Zwecke, die in unserer{" "}
-            <a href="#" rel="noreferrer" className="text-dark fw-bold">
+            <Link to={"/policy"} className="text-dark fw-bold">
               Datenschutzerklärung
-            </a>{" "}
+            </Link>{" "}
             beschrieben sind.
           </p>
           <button
