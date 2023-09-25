@@ -38,7 +38,7 @@ function App() {
   };
   return (
     <div className="App">
-      <BrowserRouter>
+      {/* <BrowserRouter>
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/regulation" element={<RegulationPage />} />
@@ -63,7 +63,8 @@ function App() {
           <Route path="/login" element={<Login />} />
         </Routes>
         <FooterSection />
-      </BrowserRouter>
+      </BrowserRouter> */}
+      <h1 className="text-center fw-bold text-success">Not released yet</h1>
     </div>
   );
 }
